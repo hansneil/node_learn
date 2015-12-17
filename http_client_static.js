@@ -3,7 +3,7 @@ var http = require("http");
 var options = {
 	hostname: 'localhost',
 	port: '8080',
-	path: '/hello.html'
+	path: '/helloa.html'
 };
 
 function handleResponse(response){
@@ -16,6 +16,7 @@ function handleResponse(response){
 	});
 }
 
+//通过http.request实现ClientRequest对象，回调函数的唯一参数是来自服务器的响应,IncomingMessage对象
 http.request(options, function(response){
 	handleResponse(response);
 }).end();

@@ -25,7 +25,7 @@ function parseWeather(weatherResponse, res) {
 }
 function getWeather(city, res){
   var options = {
-    host: 'http://api.openweathermap.org',
+    hostname: 'https://www.weibo.com',
     path: '/data/2.5/weather?q=' + city
   };
   http.request(options, function(weatherResponse){
@@ -41,6 +41,7 @@ http.createServer(function (req, res) {
     });
     req.on('end', function() {
       var postParams = qstring.parse(reqData);
+      console.log(postParams.city);
       getWeather(postParams.city, res);
     });
   } else{

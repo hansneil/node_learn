@@ -6,6 +6,7 @@ var ROOT_DIR = "html/";
 http.createServer(function(req, res){
 	//handle the request and response here
 	var urlObj = url.parse(req.url, true, false);
+	console.log(urlObj);
 	fs.readFile(ROOT_DIR + urlObj.pathname, function(err, data){
 		if (err) {
 			res.writeHead(404);
