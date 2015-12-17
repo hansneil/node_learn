@@ -33,11 +33,11 @@ function getConnection(connName){
 }
 
 function writeData(socket, data){
-	var success = !socket.write(data);
+	var success = socket.write(data);
 	if (!success) {
 		(function(socket, data){
 			socket.once('drain', function(){
-				socket.write(data);
+				socket.writeData(data);
 			});
 		})(socket, data);
 	}

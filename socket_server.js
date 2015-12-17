@@ -41,7 +41,7 @@ server.listen("8107", function(){
 });
 
 function writeData(socket, data){
-	var success = !socket.write(data);
+	var success = socket.write(data);
 	if (!success){
 		(function(socket, data){
 			socket.once('drain', function(){
