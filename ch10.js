@@ -68,7 +68,8 @@ console.log(util.inspect(obj));*/
  *     util.inherits()允许创建一个继承另一个对象prototype方法的对象
  *     util.inherits(constructor, superConstructor)
  */
-var events = require("events");
+
+/*var events = require("events");
 function Writer() {
 	events.EventEmitter.call(this);
 }
@@ -81,4 +82,20 @@ var w = new Writer();
 w.on('data', function(data){
 	console.log("Received data: '" + data + "'");
 });
-w.write("Some Data");
+w.write("Some Data");*/
+
+/*
+ * 3.dns模块
+ *   解析DNS域名、查找域或者做反向查找
+ */
+
+var dns = require('dns');
+console.log("Resolving www.baidu.com ...");
+dns.resolve4('www.baidu.com', function(err, addresses){
+	console.log('IPv4 Addresses: ' + JSON.stringify(addresses, false, ' '));
+	addresses.forEach(function(addr){
+		dns.reverse(addr, function(err, domains){
+			console.log('Reverse for ' + addr + ': ' + JSON.stringify(domains));
+		})
+	})
+})
